@@ -86,6 +86,7 @@
                 </div>
 
                 <a href="{{ route('order.history') }}" class="btn btn-outline-secondary mt-3 w-100">← Quay lại</a>
+                <button onclick="window.print()" class="btn btn-success mt-3 w-100">In hóa đơn</button>
             </div>
         </div>
     </div>

@@ -82,6 +82,7 @@
                 </div>
 
                 <a href="{{ route('admin.orders.index') }}" class="btn btn-outline-secondary mt-3 w-100">← Quay lại</a>
+                <a href="{{ route('admin.orders.invoice', $order->id) }}" target="_blank" class="btn btn-success mt-3 w-100">In hóa đơn</a>
             </div>
         </div>
     </div>

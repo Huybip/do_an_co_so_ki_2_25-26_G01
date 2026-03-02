@@ -36,4 +36,11 @@ class OrderController extends Controller
 
         return redirect()->back()->with('success', 'Cập nhật trạng thái đơn hàng thành công!');
     }
+
+    //Show printable invoice
+    public function invoice($id)
+    {
+        $order = Order::with(['user', 'orderItems.bread'])->findOrFail($id);
+        return view('admin.orders.invoice', compact('order'));
+    }
 }
