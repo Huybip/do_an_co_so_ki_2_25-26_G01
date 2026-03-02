@@ -1,4 +1,4 @@
-<footer class="bg-white border-top mt-5 pt-4 pb-3">
+<footer class="bg-white border-top mt-5 pt-4 pb-3 no-print">
     <div class="container">
         <div class="row">
             {{-- Introduction --}}

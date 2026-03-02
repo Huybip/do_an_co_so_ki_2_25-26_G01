@@ -1,5 +1,5 @@
 {{-- Thanh top nhỏ với hotline --}}
-<div class="bg-brown text-white py-1">
+<div class="bg-brown text-white py-1 no-print">
     <div class="container d-flex justify-content-between align-items-center small">
         <span>BanmyShop - Hotline: <strong>0844825565</strong></span>
         <span>🥖 BanmyShop</span>
@@ -7,7 +7,7 @@
 </div>
 
 {{-- Header chính: Logo | Tìm kiếm | Tài khoản | Giỏ hàng (luôn hiển thị, không nằm trong nút 3 gạch) --}}
-<header class="bg-white border-bottom py-3">
+<header class="bg-white border-bottom py-3 no-print">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center gap-3">
             {{-- Logo --}}
@@ -76,7 +76,7 @@
 </header>
 
 {{-- Thanh menu: Trang chủ, Bánh mì, ... (luôn hiển thị, không nằm trong nút 3 gạch) --}}
-<div class="bg-light border-bottom">
+<div class="bg-light border-bottom no-print">
     <div class="container">
         <div class="d-flex align-items-center justify-content-start gap-4 py-2">
             <a class="text-brown text-decoration-none fw-500" href="{{ route('home') }}">Trang chủ</a>
