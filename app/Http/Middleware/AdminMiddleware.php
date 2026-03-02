@@ -16,10 +16,20 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        //Kiểm tra nếu người dùng chưa đăng nhập hoặc không phải admin
-        if (!Auth::check() || Auth::user()->role !== 'admin') {
+        // Nếu chưa đăng nhập -> chuyển tới trang đăng nhập
+        if (!Auth::check()) {
+            return redirect()->guest(route('login'));
+        }
+
+        $user = Auth::user();
+
+        // Check if user is admin - use isAdmin() method if available, otherwise check role field
+        $isAdmin = method_exists($user, 'isAdmin') ? $user->isAdmin() : ($user->role === 'admin');
+
+        if (! $isAdmin) {
             abort(403, 'Bạn không có quyền truy cập chức năng này.');
         }
+
         return $next($request);
     }
 }
