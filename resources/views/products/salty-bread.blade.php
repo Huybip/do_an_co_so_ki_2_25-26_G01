@@ -25,7 +25,7 @@
             <div class="col-lg-3 d-none d-lg-block">
                 <div style="background: white; border-radius: 12px; padding: 20px; border: 1px solid #eee;">
                     <h5 style="color: var(--bm-dark); font-weight: 700; margin-bottom: 20px;">Lọc theo giá</h5>
-                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <form id="priceFilterForm" method="GET" action="{{ route('products.salty-bread') }}" style="display: flex; flex-direction: column; gap: 12px;">
                         <label style="display: flex; align-items: center; cursor: pointer;">
                             <input type="checkbox" style="cursor: pointer;" />
                             <span style="margin-left: 8px; color: #666;">Dưới 50,000 đ</span>
@@ -42,7 +42,11 @@
                             <input type="checkbox" style="cursor: pointer;" />
                             <span style="margin-left: 8px; color: #666;">Trên 200,000 đ</span>
                         </label>
-                    </div>
+                        <button type="submit" id="applyFilterBtn" style="width: 100%; margin-top: 12px; padding: 10px 15px; background: var(--bm-golden); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s;" 
+                            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(212, 163, 115, 0.3)'" 
+                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">Áp dụng
+                        </button>
+                    </form>
                 </div>
             </div>
 
