@@ -27,19 +27,19 @@
                     <h5 style="color: var(--bm-dark); font-weight: 700; margin-bottom: 20px;">Lọc theo giá</h5>
                     <form id="priceFilterForm" method="GET" action="{{ route('products.salty-bread') }}" style="display: flex; flex-direction: column; gap: 12px;">
                         <label style="display: flex; align-items: center; cursor: pointer;">
-                            <input type="checkbox" style="cursor: pointer;" />
+                            <input type="checkbox" name="price[]" value="0-50000" style="cursor: pointer;" {{ (request('price') && in_array('0-50000', (array) request('price'))) ? 'checked' : '' }} />
                             <span style="margin-left: 8px; color: #666;">Dưới 50,000 đ</span>
                         </label>
                         <label style="display: flex; align-items: center; cursor: pointer;">
-                            <input type="checkbox" style="cursor: pointer;" />
+                            <input type="checkbox" name="price[]" value="50000-100000" style="cursor: pointer;" {{ (request('price') && in_array('50000-100000', (array) request('price'))) ? 'checked' : '' }} />
                             <span style="margin-left: 8px; color: #666;">50,000 - 100,000 đ</span>
                         </label>
                         <label style="display: flex; align-items: center; cursor: pointer;">
-                            <input type="checkbox" style="cursor: pointer;" />
+                            <input type="checkbox" name="price[]" value="100000-200000" style="cursor: pointer;" {{ (request('price') && in_array('100000-200000', (array) request('price'))) ? 'checked' : '' }} />
                             <span style="margin-left: 8px; color: #666;">100,000 - 200,000 đ</span>
                         </label>
                         <label style="display: flex; align-items: center; cursor: pointer;">
-                            <input type="checkbox" style="cursor: pointer;" />
+                            <input type="checkbox" name="price[]" value="200000" style="cursor: pointer;" {{ (request('price') && in_array('200000', (array) request('price'))) ? 'checked' : '' }} />
                             <span style="margin-left: 8px; color: #666;">Trên 200,000 đ</span>
                         </label>
                         <button type="submit" id="applyFilterBtn" style="width: 100%; margin-top: 12px; padding: 10px 15px; background: var(--bm-golden); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s;" 

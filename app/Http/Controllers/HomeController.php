@@ -76,10 +76,30 @@ class HomeController extends Controller
     //show sweet bread category
     public function sweetBread(Request $request)
     {
-        $breads = Bread::where('is_available', true)
-            ->where('type', 'sweet')
-            ->orderBy('created_at', 'desc')
-            ->paginate(12);
+        $query = Bread::where('is_available', true)
+            ->where('type', 'sweet');
+
+        // Lọc theo giá
+        if ($request->has('price') && is_array($request->price)) {
+            $priceRanges = $request->price;
+            $query->where(function ($q) use ($priceRanges) {
+                foreach ($priceRanges as $range) {
+                    if ($range === '0-50000') {
+                        $q->orWhereBetween('price', [0, 50000]);
+                    } elseif ($range === '50000-100000') {
+                        $q->orWhereBetween('price', [50000, 100000]);
+                    } elseif ($range === '100000-200000') {
+                        $q->orWhereBetween('price', [100000, 200000]);
+                    } elseif ($range === '200000') {
+                        $q->orWhere('price', '>=', 200000);
+                    }
+                }
+            });
+        }
+
+        $breads = $query->orderBy('created_at', 'desc')
+            ->paginate(12)
+            ->withQueryString();
 
         return view('products.sweet-bread', compact('breads'));
     }
@@ -87,10 +107,30 @@ class HomeController extends Controller
     //show salty bread category
     public function saltyBread(Request $request)
     {
-        $breads = Bread::where('is_available', true)
-            ->where('type', 'salty')
-            ->orderBy('created_at', 'desc')
-            ->paginate(12);
+        $query = Bread::where('is_available', true)
+            ->where('type', 'salty');
+
+        // Lọc theo giá
+        if ($request->has('price') && is_array($request->price)) {
+            $priceRanges = $request->price;
+            $query->where(function ($q) use ($priceRanges) {
+                foreach ($priceRanges as $range) {
+                    if ($range === '0-50000') {
+                        $q->orWhereBetween('price', [0, 50000]);
+                    } elseif ($range === '50000-100000') {
+                        $q->orWhereBetween('price', [50000, 100000]);
+                    } elseif ($range === '100000-200000') {
+                        $q->orWhereBetween('price', [100000, 200000]);
+                    } elseif ($range === '200000') {
+                        $q->orWhere('price', '>=', 200000);
+                    }
+                }
+            });
+        }
+
+        $breads = $query->orderBy('created_at', 'desc')
+            ->paginate(12)
+            ->withQueryString();
 
         return view('products.salty-bread', compact('breads'));
     }
