@@ -108,15 +108,20 @@
                 @if($breads->count() > 0)
                     <div class="row g-4" id="breads">
                         @foreach($breads as $bread)
-                            <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="col-md-6 col-lg-4 mb-3" onmouseover="this.querySelector('.product-overlay').style.opacity='1'" onmouseout="this.querySelector('.product-overlay').style.opacity='0'">
                                 <div class="product-card" style="background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; height: 100%; display: flex; flex-direction: column;">
-                                    @if($bread->image_url)
-                                        <img src="{{ $bread->image_url }}" class="card-img-top" alt="{{ $bread->name }}" style="height: 200px; object-fit: contain; background: #f5f2ed; padding: 10px;">
-                                    @else
-                                        <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px; background: #f5f2ed;">
-                                            <span style="color: #999;">Không có ảnh</span>
+                                    <div style="position: relative; width: 100%; height: 200px;">
+                                        @if($bread->image_url)
+                                            <img src="{{ $bread->image_url }}" class="card-img-top" alt="{{ $bread->name }}" style="height: 100%; width: 100%; object-fit: contain; background: #f5f2ed; padding: 10px;">
+                                        @else
+                                            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 100%; width: 100%; background: #f5f2ed;">
+                                                <span style="color: #999;">Không có ảnh</span>
+                                            </div>
+                                        @endif
+                                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(212, 163, 115, 0.85); opacity: 0; transition: all 0.3s; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; width: 70%; height: 70%; border-radius: 16px; pointer-events: none;" class="product-overlay">
+                                            👁️ Xem chi tiết
                                         </div>
-                                    @endif
+                                    </div>
 
                                     <div style="flex: 1; padding: 20px; display: flex; flex-direction: column;">
                                         <h6 class="card-title mb-2" style="color: var(--bm-dark); font-weight: 600; font-size: 1.05rem;">{{ $bread->name }}</h6>
