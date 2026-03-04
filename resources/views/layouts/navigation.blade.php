@@ -93,7 +93,7 @@
                 </ul>
             </div>
             
-            <a class="text-brown text-decoration-none fw-500" href="#">Gallery</a>
+            <a class="text-brown text-decoration-none fw-500" href="{{ route('gallery') }}">Gallery</a>
             <a class="text-brown text-decoration-none fw-500" href="{{ route('news.index') }}">Tin tức &amp; Khuyến mại</a>
             
             {{-- Liên hệ với dropdown --}}

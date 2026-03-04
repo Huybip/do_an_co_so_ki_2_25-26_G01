@@ -134,4 +134,14 @@ class HomeController extends Controller
 
         return view('products.salty-bread', compact('breads'));
     }
+
+    //show gallery
+    public function gallery(Request $request)
+    {
+        $breads = Bread::where('is_available', true)
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        return view('gallery', compact('breads'));
+    }
 }

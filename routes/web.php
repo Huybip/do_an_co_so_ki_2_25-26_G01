@@ -21,6 +21,9 @@ Route::get('/products/new', [HomeController::class, 'newProducts'])->name('produ
 Route::get('/products/sweet-bread', [HomeController::class, 'sweetBread'])->name('products.sweet-bread');
 Route::get('/products/salty-bread', [HomeController::class, 'saltyBread'])->name('products.salty-bread');
 
+// Gallery
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
+
 // News & promotions
 use App\Http\Controllers\NewsController;
 
