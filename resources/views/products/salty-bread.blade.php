@@ -65,8 +65,8 @@
                                                 <span style="color: #999;">Không có ảnh</span>
                                             </div>
                                         @endif
-                                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(212, 163, 115, 0.85); opacity: 0; transition: all 0.3s; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; width: 70%; height: 70%; border-radius: 16px; cursor: pointer;" class="product-overlay">
-                                            <a href="{{ route('bread.show', $bread->id) }}" style="color: white; text-decoration: none; display: block; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">👁️ Xem chi tiết</a>
+                                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(212, 163, 115, 0.85); opacity: 0; transition: all 0.3s; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; width: 70%; height: 70%; border-radius: 16px; pointer-events: none;" class="product-overlay">
+                                            👁️ Xem chi tiết
                                         </div>
                                     </div>
 
