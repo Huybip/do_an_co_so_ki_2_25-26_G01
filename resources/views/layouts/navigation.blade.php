@@ -49,7 +49,13 @@
                             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Tài khoản của tôi</a></li>
                             <li><a class="dropdown-item" href="{{ route('order.history') }}">Đơn hàng</a></li>
                             @if(auth()->user()->isAdmin())
-                                <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Quản trị</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item fw-bold text-danger" href="{{ route('admin.dashboard') }}">⚙️ Quản trị Hệ Thống</a></li>
+                                <li><a class="dropdown-item ps-4" href="{{ route('admin.breads.index') }}">📦 Quản lý bánh mì</a></li>
+                                <li><a class="dropdown-item ps-4" href="{{ route('admin.orders.index') }}">📋 Quản lý đơn hàng</a></li>
+                                <li><a class="dropdown-item ps-4" href="{{ route('admin.news.index') }}">📰 Quản lý tin tức</a></li>
+                                <li><a class="dropdown-item ps-4" href="{{ route('admin.promo-codes.index') }}">🏷️ Quản lý mã giảm giá</a></li>
+                                <li><a class="dropdown-item ps-4" href="{{ route('admin.users.index') }}">👥 Quản lý người dùng</a></li>
                             @endif
                             <li><hr class="dropdown-divider"></li>
                             <li>

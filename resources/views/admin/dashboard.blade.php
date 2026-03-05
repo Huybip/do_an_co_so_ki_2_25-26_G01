@@ -107,6 +107,9 @@
                             <a href="{{ route('admin.news.index') }}" class="btn btn-outline-secondary">
                                 📰 Quản lý tin tức & khuyến mãi
                             </a>
+                            <a href="{{ route('admin.promo-codes.index') }}" class="btn btn-outline-danger">
+                                🏷️ Quản lý mã giảm giá
+                            </a>
                             <a href="{{ route('admin.users.index') }}" class="btn btn-outline-warning">
                                 👥 Quản lý người dùng
                             </a>

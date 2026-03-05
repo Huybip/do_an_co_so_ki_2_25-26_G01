@@ -35,6 +35,9 @@
                                 <label class="form-label">Ghi chú (tùy chọn)</label>
                                 <textarea name="note" class="form-control" rows="2">{{ old('note') }}</textarea>
                             </div>
+
+                            <!-- Input hidden cho mã giảm giá -->
+                            <input type="hidden" name="promo_code" id="promoCodeInput">
                             
                             <button type="submit" class="btn btn-success btn-lg w-100">
                                 Đặt hàng (COD)
@@ -67,7 +70,6 @@
                                 <button class="btn btn-primary" type="button" id="applyPromo">Áp dụng</button>
                             </div>
                             <div id="promoMessage" class="mt-2"></div>
-                            <input type="hidden" name="promo_code" id="promoCodeInput">
                         </div>
 
                         <div class="d-flex justify-content-between mb-2">
