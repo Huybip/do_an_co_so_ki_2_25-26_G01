@@ -14,7 +14,7 @@
         <div class="row g-4" id="galleryGrid">
             @forelse($breads as $bread)
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                    <div class="gallery-item position-relative overflow-hidden" style="background: white; border-radius: 12px; cursor: pointer; transition: all 0.3s; border: 1px solid #eee; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative;" 
+                    <div class="gallery-item position-relative overflow-hidden" style="background: white; border-radius: 12px; cursor: pointer; transition: all 0.3s; border: 1px solid #eee; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); position: relative;
                         onmouseover="this.style.boxShadow='0 8px 24px rgba(212, 163, 115, 0.3)'; this.style.transform='translateY(-5px)'" 
                         onmouseout="this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.1)'; this.style.transform='translateY(0)'"
                         data-bs-toggle="modal" data-bs-target="#galleryModal" data-id="{{ $bread->id }}" data-name="{{ $bread->name }}" data-price="{{ $bread->price }}" data-description="{{ $bread->description }}" data-image="{{ $bread->image_url }}" data-type="{{ $bread->type }}">
