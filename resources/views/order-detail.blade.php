@@ -31,9 +31,31 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="3" class="text-end"><strong>Tổng cộng:</strong></td>
+                                        <td colspan="3" class="text-end"><strong>Tiền hàng:</strong></td>
+                                        <td class="text-dark fw-bold">
+                                            {{ number_format($order->total_amount + $order->discount_amount) }} đ
+                                        </td>
+                                    </tr>
+                                    @if($order->discount_amount > 0)
+                                    <tr>
+                                        <td colspan="3" class="text-end"><strong>Giảm giá:</strong></td>
+                                        <td class="text-danger fw-bold">
+                                            -{{ number_format($order->discount_amount) }} đ
+                                            @if($order->promoCode)
+                                            <small class="badge bg-success">{{ $order->promoCode->code }}</small>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" class="text-end"><strong>Tổng thanh toán:</strong></td>
                                         <td class="text-danger fs-5 fw-bold">{{ number_format($order->total_amount) }} đ</td>
                                     </tr>
+                                    @else
+                                    <tr>
+                                        <td colspan="3" class="text-end"><strong>Tổng thanh toán:</strong></td>
+                                        <td class="text-danger fs-5 fw-bold">{{ number_format($order->total_amount) }} đ</td>
+                                    </tr>
+                                    @endif
                                 </tfoot>
                             </table>
                         </div>

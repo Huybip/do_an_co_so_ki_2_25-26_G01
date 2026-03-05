@@ -15,12 +15,15 @@ class Order extends Model
         'customer_phone',
         'customer_address',
         'total_amount',
+        'discount_amount',
+        'promo_code_id',
         'status',
         'note',
     ];
 
     protected $casts = [
         'total_amount' => 'decimal:2',
+        'discount_amount' => 'decimal:2',
         'status' => 'string',
     ];
 
@@ -34,5 +37,11 @@ class Order extends Model
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    // Define relationship with promo code
+    public function promoCode()
+    {
+        return $this->belongsTo(PromoCode::class, 'promo_code_id');
     }
 }

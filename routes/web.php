@@ -40,6 +40,7 @@ Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('car
 Route::middleware('auth')->group(function () {
     Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
     Route::post('/order', [OrderController::class, 'store'])->name('order.store');
+    Route::post('/promo/validate', [OrderController::class, 'validatePromoCode'])->name('promo.validate');
     Route::get('/order/success/{id}', [OrderController::class, 'success'])->name('order.success');
     Route::get('/order/history', [OrderController::class, 'history'])->name('order.history');
     Route::get('/order/{id}', [OrderController::class, 'detail'])->name('order.detail');
@@ -71,6 +72,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
     // User Management
     Route::resource('users', AdminUserController::class);
+
+    // Promo Code Management
+    Route::resource('promo-codes', \App\Http\Controllers\Admin\PromoCodeController::class);
 });
 
 require __DIR__ . '/auth.php';
